@@ -1,0 +1,12 @@
+module.exports = DS.Model.extend
+  api_id:       DS.attr "number"
+  backdrop:     DS.attr "string"
+  poster:       DS.attr "string"
+  release_date: DS.attr "date"
+  title:        DS.attr "string"
+  type:         DS.attr "string"
+  overview:     DS.attr "string"
+  runtime:      DS.attr "number"
+  status:       DS.attr "string"
+  tagline:      DS.attr "string"
+  trailers:     DS.hasMany "trailer"
