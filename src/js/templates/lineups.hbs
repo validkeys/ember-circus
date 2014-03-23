@@ -1,0 +1,13 @@
+{{#link-to 'lineup.new'}}New{{/link-to}}
+<h1>Lineups</h1>
+<ul>
+{{#each}}
+  <li>
+    {{#link-to 'lineup' this}}{{title}}{{/link-to}}
+    <strong>Created: {{ created_at }}</strong>
+    {{#link-to "lineup.edit" this}}Edit{{/link-to}}
+  </li>
+{{/each}}
+</ul>
+
+{{load-more}}

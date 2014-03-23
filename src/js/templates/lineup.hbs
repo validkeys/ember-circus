@@ -1,0 +1,29 @@
+<h1>{{ title }}</h4>
+<strong>Created: {{ created_at }}</strong>
+<p>{{description}}</p>
+
+<hr />
+
+<h3>Curators</h3>
+{{#each curators}}
+  <p>{{ user.first_name }} {{ user.last_name }}</p>
+{{/each}}
+
+<hr />
+
+<p>Score: {{ cached_votes_score }}</p>
+
+<h3>Backdrops:</h3>
+{{#each backdrops}}
+  {{ backdrop-image file_path=file_path width="780" medium_id=medium_id}}
+{{/each}}
+
+<h3>Selections</h3>
+<ul>
+{{#each selections}}
+  <li>
+    {{ poster-image file_path=medium.poster width="154" medium_id=medium.id}}
+    {{#link-to "medium" this.medium }}{{medium.title}}{{/link-to}}
+  </li>
+{{/each}}
+</ul>

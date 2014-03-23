@@ -5,6 +5,8 @@ watch       = require 'gulp-watch'
 connect     = require 'gulp-connect'
 browserify  = require 'gulp-browserify'
 rename      = require 'gulp-rename'
+handlebars  = require 'gulp-ember-handlebars'
+concat      = require 'gulp-concat'
 
 gulp.task 'connect', connect.server
   root: ['dist']
@@ -23,6 +25,20 @@ gulp.task 'scripts', ->
     .pipe(gulp.dest './dist/js/')
     .pipe(connect.reload())
 
+gulp.task "templates", ->
+  gulp.src(["./src/js/templates/**/*.hbs"])
+    .pipe(
+        handlebars(
+          outputType: "browser"
+        )
+      )
+    .pipe(concat("templates.js"))
+    .pipe(gulp.dest("./dist/js/"))
+    .pipe(connect.reload())
+    
+
+
+
 # gulp.task 'stylus', ->
 #   gulp.src './src/css/*.styl'
 #     .pipe(watch())
@@ -40,5 +56,6 @@ gulp.task 'copy', ->
 
 gulp.task 'watch', ->
   gulp.watch("./src/js/**/*.coffee", ['scripts'])
+  gulp.watch("./src/js/templates/**/*.hbs", ['templates'])  
 
-gulp.task 'default', ['connect','scripts','copy','watch']
+gulp.task 'default', ['connect','scripts','templates','copy','watch']

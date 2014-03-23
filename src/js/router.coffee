@@ -12,7 +12,8 @@ App.Router.map ->
   @resource "lineup", path: "/lineups/:lineup_id", ->
     @route "curators"
 
-  @route "lineup.new", path: "/lineups/new"
+  @route "lineup.new",  path: "/lineups/new"
+  @route "lineup.edit", path: "/lineups/:lineup_id/edit"
 
   @resource "medium", path: "/media/:medium_id"
 

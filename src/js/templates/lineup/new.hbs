@@ -1,0 +1,18 @@
+<h1>Create a lineup</h1>
+<p>{{ title }}</p>
+
+{{#if error_messages}}
+<ul>
+  {{#each error_messages}}
+    <li>{{ this }}</li>
+  {{/each}}
+</ul>
+{{/if}}
+
+
+{{#if saving}}
+  <p>Saving...</p>
+{{else}}
+  {{input name='title' value=title}}
+  <button {{action 'submitForm'}}>Create!</button> 
+{{/if}}

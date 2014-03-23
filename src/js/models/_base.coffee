@@ -21,6 +21,7 @@ App.Trailer             = require "./trailer"
 App.User                = require "./user"
 App.UserMedium          = require "./user_medium"
 App.UserMediumTheme     = require "./user_medium_theme"
+App.WeatherCondition    = require './weather_condition'
 
 # NOTES:
 #       -> Creating Records
