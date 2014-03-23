@@ -27,6 +27,7 @@ module.exports = DS.Model.extend
   backdrops:                  DS.attr()
   curators:                   DS.hasMany "curator"
   selections:                 DS.hasMany "selection"
-  item_themes:                DS.hasMany "item_theme", polymorphic: true
+  item_themes:                DS.hasMany "item_theme"
   lineup_day_times:           DS.hasMany "lineup_day_time"
   lineup_weather_conditions:  DS.hasMany "lineup_weather_condition"
+  recommendations:            DS.hasMany "recommendation"

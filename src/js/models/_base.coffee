@@ -4,15 +4,23 @@
 
 # Ember.Inflector.inflector.irregular('medium', 'media');
 
+App.Character     = require "./character"
+App.Comment       = require "./comment"
+App.CrewMember    = require "./crew_member"
 App.Curator       = require "./curator"
 App.ItemTheme     = require "./item_theme"
 App.Lineup        = require "./lineup"
-App.LineupDayTime        = require "./lineup_day_time"
-App.LineupWeatherCondition        = require "./lineup_weather_condition"
+App.LineupDayTime             = require "./lineup_day_time"
+App.LineupWeatherCondition    = require "./lineup_weather_condition"
 App.Medium        = require "./medium"
-App.Selection     = require "./selection"
-App.Trailer       = require "./trailer"
-App.User          = require "./user"
+App.Person        = require "./person"
+App.Recommendation            = require "./recommendation"
+App.Selection           = require "./selection"
+App.Theme               = require "./theme"
+App.Trailer             = require "./trailer"
+App.User                = require "./user"
+App.UserMedium          = require "./user_medium"
+App.UserMediumTheme     = require "./user_medium_theme"
 
 # NOTES:
 #       -> Creating Records

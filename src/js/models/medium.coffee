@@ -10,3 +10,5 @@ module.exports = DS.Model.extend
   status:       DS.attr "string"
   tagline:      DS.attr "string"
   trailers:     DS.hasMany "trailer"
+  characters:   DS.hasMany "character"
+  crew_member:  DS.hasMany "crew_member"
