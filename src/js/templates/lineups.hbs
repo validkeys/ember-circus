@@ -1,7 +1,13 @@
 {{#link-to 'lineup.new'}}New{{/link-to}}
-<h1>Lineups</h1>
+<h1>{{#if showPublished}}Published{{else}}Un-Published{{/if}} Lineups</h1>
+
+<div>
+  <a href="#" {{bind-attr class="showPublished:active"}} {{action "showPublished"}}>Published</a>
+  <a href="#" {{bind-attr class="showPublished:inactive:active"}} {{action "showUnpublished"}}>Unpublished</a>
+</div>
+
 <ul>
-{{#each}}
+{{#each filteredLineups}}
   <li>
     {{#link-to 'lineup' this}}{{title}}{{/link-to}}
     <strong>Created: {{ created_at }}</strong>
@@ -10,4 +16,15 @@
 {{/each}}
 </ul>
 
-{{load-more action="loadMore"}}
+
+{{#if recordsAvailable}}
+  {{#if loadingMore}}
+    <button disabled>Loading....</button>
+  {{else}}
+    <button {{action "loadMore"}}>Load More</button>
+  {{/if}}
+{{/if}}
+
+<p>Page: {{ page }}</p>
+<p>Pages: {{ pages }}</p>
+<p>Total: {{ total }}</p>

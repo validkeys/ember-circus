@@ -3,7 +3,11 @@ window.Ember  = require('ember')
 window.DS     = require('ember_data')
 
 $((() ->
-  window.App = Ember.Application.create()
+  window.App = Ember.Application.create
+    appName:                  'circus'
+    LOG_TRANSITIONS:          false
+    LOG_TRANSITIONS_INTERNAL: false
+    LOG_VIEW_LOOKUPS:         false
 
 
   ## ----------------------

@@ -1,4 +1,5 @@
 gulp        = require 'gulp'
+gutil       = require 'gulp-util'
 stylus      = require 'gulp-stylus'
 path        = require 'path'
 watch       = require 'gulp-watch'
@@ -18,9 +19,12 @@ gulp.task 'connect', connect.server
 gulp.task 'scripts', ->
   gulp.src('./src/js/app.coffee',{read: false})
     .pipe(browserify(
+      insertGlobals: true
       extensions: [".coffee"]
       debug: !gulp.env.production
     ))
+    .on("error", gutil.log)
+    .on("error", gutil.beep)
     .pipe(rename('app.js'))
     .pipe(gulp.dest './dist/js/')
     .pipe(connect.reload())

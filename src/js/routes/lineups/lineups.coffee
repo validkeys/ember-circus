@@ -1,4 +1,17 @@
 module.exports = App.BaseRoute.extend
+
+  setupController: (controller, model) ->
+    controller.set "model", model
+    meta = @get("store").metadataFor("lineup")
+
+    controller.setProperties
+      page:   meta.page
+      pages:  meta.pages
+      total:  meta.total
+
+
+    @_super()
+
   model: ->
 
     # NOTE:
@@ -9,8 +22,11 @@ module.exports = App.BaseRoute.extend
 
     @store.find "lineup"
 
+
   actions:
-    loadMore: ->
-      meta = @store.metadataFor("lineups")
-      @store.find( "lineup", {page: meta.page + 1} )
-      console.dir meta
+    loadMore: (page) ->
+      # console.log "Load more heard in the route", page
+      
+      store = @get "store"
+      results = store.find('lineup', { page: page }).then =>
+        @get("controller").send("loadedMore", store.metadataFor("lineup"))
