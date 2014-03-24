@@ -8,3 +8,9 @@ module.exports = App.BaseRoute.extend
     #       :: this.store.all('model-name') //-> no network request
 
     @store.find "lineup"
+
+  actions:
+    loadMore: ->
+      meta = @store.metadataFor("lineups")
+      @store.find( "lineup", {page: meta.page + 1} )
+      console.dir meta
