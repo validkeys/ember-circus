@@ -13,6 +13,7 @@ App.Router.map ->
 
   @resource "lineup", path: "/lineups/:lineup_id", ->
     @route "curators"
+    @resource "comments", path: "/comments"
 
   @route "lineup.new",  path: "/lineups/new"
   @route "lineup.edit", path: "/lineups/:lineup_id/edit"

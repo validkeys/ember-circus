@@ -2,8 +2,8 @@
 <h1>{{#if showPublished}}Published{{else}}Un-Published{{/if}} Lineups</h1>
 
 <div>
-  <a href="#" {{bind-attr class="showPublished:active"}} {{action "showPublished"}}>Published</a>
-  <a href="#" {{bind-attr class="showPublished:inactive:active"}} {{action "showUnpublished"}}>Unpublished</a>
+  <a href="#" {{bind-attr class="showPublished:active"}} {{action "showPublished"}}>Published ({{numPublished}})</a>
+  <a href="#" {{bind-attr class="showPublished:inactive:active"}} {{action "showUnpublished"}}>Unpublished ({{numUnpublished}})</a>
 </div>
 
 <ul>

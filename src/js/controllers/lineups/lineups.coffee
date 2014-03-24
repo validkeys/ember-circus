@@ -11,20 +11,42 @@ module.exports = Ember.ArrayController.extend
   # --------------------------
 
 
+  # SORTING
+  # --
   sortProperties:   ['created_at']
   sortAscending:    false
+
+  # WHEN LOADING MORE DATA
   loadingMore:      false
 
+  # A CLASS TO BIND TO FOR WHETHER
+  # WE ARE CURRENTLY SHOWING THE PUBLISHED
+  # OR UNPUBLISHED LINEUPS
   showPublished:    true
 
-  # TODO:
-  #      THIS DOESN'T SEEM TO BE UPDATING THE DOM
-  #      WHEN NEW ITEMS ARE ADDED UNTIL YOU TOGGLE
-  #      THE PUBLISHED/UNPUBLISHED LINKS
+
+  numPublished:(->
+    @get('model').filterProperty('published', true).length
+  ).property('@each.published')
+
+  numUnpublished:(->
+    @get('model').filterProperty('published', false).length
+  ).property('@each.published')  
+
+
+  ## TODO: Is observing @each here what I should be doing?
+  ##       doing this because this wouldn't run when new models
+  ##       were loaded
   filteredLineups:(->
     @get('model').filterProperty('published', @get("showPublished"))
-  ).property('showPublished')
+  ).property('showPublished','@each')
 
+
+  ## TODO:
+  ##      This meta page data gets reset when
+  ##      navigating away from this controller
+  ##      but the data remains in the store. -- so need a way to
+  ##      remember the last page that we loaded
   recordsAvailable:(->
 
     if @get('total') > 0

@@ -9,7 +9,6 @@ module.exports = App.BaseRoute.extend
       pages:  meta.pages
       total:  meta.total
 
-
     @_super()
 
   model: ->
@@ -27,6 +26,6 @@ module.exports = App.BaseRoute.extend
     loadMore: (page) ->
       # console.log "Load more heard in the route", page
       
-      store = @get "store"
-      results = store.find('lineup', { page: page }).then =>
+      store = @get("store")
+      store.find('lineup', { page: page }).then (results) =>
         @get("controller").send("loadedMore", store.metadataFor("lineup"))

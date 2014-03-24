@@ -1,4 +1,9 @@
 ## ----------------
+## Comments
+## ----------------
+App.CommentsController    = require './comments/comments'
+
+## ----------------
 ## Lineups
 ## ----------------
 
