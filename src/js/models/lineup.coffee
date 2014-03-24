@@ -30,4 +30,5 @@ module.exports = DS.Model.extend
   item_themes:                DS.hasMany "item_theme"
   lineup_day_times:           DS.hasMany "lineup_day_time"
   lineup_weather_conditions:  DS.hasMany "lineup_weather_condition"
-  recommendations:            DS.hasMany "recommendation"
+  recommendations:            DS.hasMany "recommendation", async: true
+  comments:                   DS.hasMany "comment", async: true
