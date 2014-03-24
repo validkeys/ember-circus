@@ -1,4 +1,6 @@
 module.exports = DS.Model.extend
+
+
   title:                      DS.attr "string"
   cached_votes_down:          DS.attr "number"
   cached_votes_score:         DS.attr "number"
@@ -32,3 +34,11 @@ module.exports = DS.Model.extend
   lineup_weather_conditions:  DS.hasMany "lineup_weather_condition"
   recommendations:            DS.hasMany "recommendation", async: true
   comments:                   DS.hasMany "comment", async: true
+
+  loadMoreComments: (options = {}) ->
+    store = @store
+    store.find 'comment',
+      lineup_id:    @get "id"
+      page:         options.page || 1
+
+    

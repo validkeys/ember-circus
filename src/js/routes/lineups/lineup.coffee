@@ -5,3 +5,9 @@ module.exports = App.BaseRoute.extend App.LoadMoreRouteMixin,
     #   ::-> this.store.find('lineup', { published: true })
 
     @store.find "lineup", params.lineup_id
+
+  actions:
+    loadMoreComments: ->
+      console.log "Route heard load more comments"
+      # store = @get "store"
+      console.log @get('controller').get("links")

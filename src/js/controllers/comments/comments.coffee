@@ -1,8 +1,11 @@
 module.exports = Ember.ArrayController.extend
-  needs: ['lineup']
+#   needs: ['lineup']
+#   post: Ember.computed.alias "controllers.post"
+#   lineupBinding: "controllers.lineup"
+  
+  init: (args...) ->
+    console.dir args
 
-  lineupBinding: "controllers.lineup"
-
-  init: ->
-    lineup = @get('controllers.lineup').get('model').get("comments")
-    lineup.reload()
+  actions:
+    loadMoreComments: ->
+      console.log "CommentsController hear loadMoreComments"

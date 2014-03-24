@@ -14,12 +14,14 @@
 <p>Score: {{ cached_votes_score }}</p>
 
 <h3>Backdrops:</h3>
+<ul class="float">
 {{#each backdrops}}
-  {{ backdrop-image file_path=file_path width="780" medium_id=medium_id}}
+  <li>{{ backdrop-image file_path=file_path width="780" medium_id=medium_id}}</li>
 {{/each}}
+</ul>
 
 <h3>Selections</h3>
-<ul>
+<ul class="float">
 {{#each selections}}
   <li>
     {{ poster-image file_path=medium.poster width="154" medium_id=medium.id}}
@@ -33,6 +35,7 @@
 {{#each comments}}
   <li>{{ message }}</li>
 {{/each}}
+<button {{action "loadMoreComments"}}>Load More Comments</button>
 </ul>
 
 <h3>Recommendations</h3>

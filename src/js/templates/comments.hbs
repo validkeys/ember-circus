@@ -1,5 +1,12 @@
 Comments!
 
+<ul>
 {{#each}}
-  {{log this}}
+  <li>
+      {{ message }}
+      <small>- {{ user.first_name }} {{ user.last_name }}</small>
+  </li>
 {{/each}}
+</ul>
+
+<button {{action "loadMoreComments" }}>Load More Comments</button>
