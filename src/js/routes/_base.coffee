@@ -4,6 +4,11 @@ App.LoadMoreRouteMixin = require('./_mixins/load-more')
 App.BaseRoute   = require('./base')
 App.IndexRoute  = require('./index')
 
+## --------------
+## CURATORS
+## --------------
+
+App.CuratorsRoute = require './curators/curators'
 
 ## --------------
 ## LINEUPS

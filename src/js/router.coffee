@@ -6,6 +6,8 @@ App.Router.map ->
 
   @route "login"
 
+  @resource "curators", path: "/curators"
+
   @resource "lineups",
     path: "/lineups"
 
